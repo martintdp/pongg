@@ -27,6 +27,7 @@
     "phaser": "^2.6.2"
   },
   "devDependencies": {
+    "expose-loader": "^0.7.1",
     "html-webpack-plugin": "^2.24.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
