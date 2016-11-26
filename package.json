@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/martintdp/pongg#readme",
   "dependencies": {
-    "babel": "^6.5.2",
-    "babel-core": "^6.18.2",
     "phaser": "^2.6.2"
   },
   "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.2",
     "babel-preset-es2015": "^6.18.0",
     "expose-loader": "^0.7.1",
     "html-webpack-plugin": "^2.24.1",
