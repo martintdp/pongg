@@ -22,8 +22,14 @@ module.exports = {
       { test: /\.js$/, loader: 'babel' },
       { test: /\.css$/, loader: "style!css" },
       { test: /pixi\.js/, loader: 'expose?PIXI' },
+      { test: /p2\.js/, loader: 'expose?p2' },
       { test: /phaser-split\.js$/, loader: 'expose?Phaser' },
-      { test: /p2\.js/, loader: 'expose?p2' }   ]
+      { test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          'file?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
+      }]
   },
   resolve: {
     alias: {
