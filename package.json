@@ -4,7 +4,8 @@
   "description": "Basic pong game",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,14 @@
   "bugs": {
     "url": "https://github.com/martintdp/pongg/issues"
   },
-  "homepage": "https://github.com/martintdp/pongg#readme"
+  "homepage": "https://github.com/martintdp/pongg#readme",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.2",
+    "phaser": "^2.6.2"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
 }
