@@ -6,8 +6,8 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 
 function preload() {
 
-    game.load.image('bullet', 'assets/sprites/shmup-bullet.png');
-    game.load.image('ship', 'assets/sprites/thrust_ship.png');
+    game.load.image('bullet', 'assets/sprites/rojo.png');
+    game.load.image('ship', 'assets/sprites/verde.png');
 
 }
 
