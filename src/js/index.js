@@ -1,14 +1,14 @@
 import 'pixi';
 import 'p2';
 import "phaser";
+import bullet from '../assets/sprites/rojo.png';
+import ship from '../assets/sprites/verde.png';
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
-
-    game.load.image('bullet', 'assets/sprites/rojo.png');
-    game.load.image('ship', 'assets/sprites/verde.png');
-
+    game.load.image('bullet', bullet);
+    game.load.image('ship', ship);
 }
 
 var sprite;
