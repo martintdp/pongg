@@ -30,7 +30,7 @@ function create() {
     //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
     weapon.fireRate = 100;
 
-    sprite = this.add.sprite(400, 300, 'ship');
+    sprite = game.add.sprite(400, 300, 'ship');
 
     sprite.anchor.set(0.5);
 
@@ -44,9 +44,9 @@ function create() {
     //  But the 'true' argument tells the weapon to track sprite rotation
     weapon.trackSprite(sprite, 0, 0, true);
 
-    cursors = this.input.keyboard.createCursorKeys();
+    cursors = game.input.keyboard.createCursorKeys();
 
-    fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+    fireButton = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
 }
 
