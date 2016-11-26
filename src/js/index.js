@@ -4,87 +4,45 @@ import "phaser";
 import bullet from '../assets/sprites/rojo.png';
 import ship from '../assets/sprites/verde.png';
 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+const game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update });
 
 function preload() {
     game.load.image('bullet', bullet);
     game.load.image('ship', ship);
 }
-
-var sprite;
-var weapon;
+var paddleLeft;
+var paddleRight;
 var cursors;
-var fireButton;
+
+const setupPaddle = aPaddle => {
+    aPaddle.anchor.set(0.5);
+    game.physics.arcade.enable(aPaddle);
+    aPaddle.body.drag.set(70);
+    aPaddle.body.maxVelocity.set(200);
+    aPaddle.body.collideWorldBounds = true;
+    return aPaddle;
+};
 
 function create() {
+    paddleLeft = setupPaddle(game.add.sprite(0, 300, 'ship'));
+    paddleRight = setupPaddle(game.add.sprite(400, 750, 'ship'));
 
-    //  Creates 30 bullets, using the 'bullet' graphic
-    weapon = game.add.weapon(30, 'bullet');
-
-    //  The bullet will be automatically killed when it leaves the world bounds
-    weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-
-    //  The speed at which the bullet is fired
-    weapon.bulletSpeed = 600;
-
-    //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-    weapon.fireRate = 100;
-
-    sprite = game.add.sprite(400, 300, 'ship');
-
-    sprite.anchor.set(0.5);
-
-    game.physics.arcade.enable(sprite);
-
-    sprite.body.drag.set(70);
-    sprite.body.maxVelocity.set(200);
-
-    //  Tell the Weapon to track the 'player' Sprite
-    //  With no offsets from the position
-    //  But the 'true' argument tells the weapon to track sprite rotation
-    weapon.trackSprite(sprite, 0, 0, true);
 
     cursors = game.input.keyboard.createCursorKeys();
-
-    fireButton = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
-
 }
 
 function update() {
 
     if (cursors.up.isDown)
     {
-        game.physics.arcade.accelerationFromRotation(sprite.rotation, 300, sprite.body.acceleration);
+        game.physics.arcade.accelerationFromRotation(paddleLeft.rotation, 300, paddleLeft.body.acceleration);
     }
     else
     {
-        sprite.body.acceleration.set(0);
+        paddleLeft.body.acceleration.set(0);
     }
 
-    if (cursors.left.isDown)
-    {
-        sprite.body.angularVelocity = -300;
-    }
-    else if (cursors.right.isDown)
-    {
-        sprite.body.angularVelocity = 300;
-    }
-    else
-    {
-        sprite.body.angularVelocity = 0;
-    }
 
-    if (fireButton.isDown)
-    {
-        weapon.fire();
-    }
-
-    game.world.wrap(sprite, 16);
-
-}
-
-function render() {
-
-    weapon.debug();
+    game.world.wrap(paddleLeft, 16);
 
 }
