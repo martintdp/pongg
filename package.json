@@ -1,0 +1,23 @@
+{
+  "name": "pongg",
+  "version": "0.0.1",
+  "description": "Basic pong game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martintdp/pongg.git"
+  },
+  "keywords": [
+    "pong",
+    "game"
+  ],
+  "author": "MTdP - JBM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martintdp/pongg/issues"
+  },
+  "homepage": "https://github.com/martintdp/pongg#readme"
+}
